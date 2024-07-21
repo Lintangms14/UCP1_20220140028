@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Themed Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: linear-gradient(135deg, #085f99, #2c3e50);
+            animation: fade-in 1s ease;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            background-color: #ffffff; 
+            border-bottom: 2px solid #2c3e50; 
+            padding: 16px 0; 
+            text-align: center;
+            animation: slide-in-header 1s ease;
+        }
+
+        .overlay {
+            padding: 0 16px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: float 3s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 800px; 
+            margin: 0 auto; 
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            animation: fade-in 1s ease;
+        }
+
+        section {
+            padding: 40px 20px;
+            text-align: center;
+            animation: slide-in-section 1s ease;
+        }
+
+        section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50; 
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            animation: fade-in 1s ease;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .description {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fade-in 1s ease, pulse 1.5s infinite alternate;
+        }
+
+        .show-description {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .show-description:hover {
+            background-color: #1a252f;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            animation: slide-in-footer 1s ease;
+        }
+
+        @keyframes slide-in-header {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slide-in-section {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slide-in-footer {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="overlay">
+        <h1>Welcome to <span style="color: #ffa500;">Gunung Bromo</span></h1>
+    </div>
+</header>
+
+<div class="container">
+    <section>
+        <div class="image-container">
+            <img src="https://i0.wp.com/www.rukita.co/stories/wp-content/uploads/2023/07/jip-bromo.webp?resize=800%2C533&ssl=1" alt="Gunung Bromo">
+        </div>
+        <h2>Pengenalan Gunung Bromo</h2>
+        <div class="description" id="description">
+            <p>Gunung Bromo adalah salah satu gunung berapi yang terletak di Jawa Timur, Indonesia. Terletak dalam kawasan Taman Nasional Bromo Tengger Semeru, Gunung Bromo dikelilingi oleh lautan pasir yang luas dan pemandangan pegunungan yang indah. Gunung ini menjadi salah satu destinasi wisata utama di Indonesia, menarik ribuan pengunjung setiap tahunnya.
+
+                Keunikan Gunung Bromo terletak pada
+                bentuknya yang menakjubkan serta aktivitas vulkanik yang masih terjadi secara periodik. Dengan ketinggian sekitar 2.329 meter di atas permukaan laut, Gunung Bromo menawarkan pemandangan matahari terbit yang spektakuler. Saat matahari terbit, cahaya matahari yang memancar menembus awan dan kabut di sekitar gunung, menciptakan pemandangan yang memukau bagi para pengunjung.</p>
+            </div>
+            <a href="#" class="show-description" id="toggleDescription">Lihat Deskripsi Gunung Bromo</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Gunung Bromo. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        var description = document.getElementById("description");
+        var toggleDescription = document.getElementById("toggleDescription");
+    
+        toggleDescription.addEventListener("click", function(event) {
+            event.preventDefault(); 
+            if (description.style.display === "none") {
+                description.style.display = "block";
+                toggleDescription.textContent = "Sembunyikan Deskripsi Gunung Bromo";
+            } else {
+                description.style.display = "none";
+                toggleDescription.textContent = "Lihat Deskripsi Gunung Bromo";
+            }
+        });
+    </script>
+    </body>
+    </html>
